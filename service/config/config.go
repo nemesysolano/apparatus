@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -66,7 +67,7 @@ func init() {
 	}
 
 	if Config.OllamaHost == "" || Config.OllamaEmbeddingsModel == "" || Config.OllamaChatModel == "" {
-		panic("One or more Ollama environment variables are not set")
+		panic(fmt.Sprintf("One or more Ollama environment variables are not set %s, %s, %s", Config.OllamaHost, Config.OllamaEmbeddingsModel, Config.OllamaChatModel))
 	}
 
 	if Config.ServerPort != "" {
